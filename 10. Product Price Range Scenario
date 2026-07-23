@@ -1,0 +1,18 @@
+CREATE TABLE Product (
+    ProductID INT PRIMARY KEY,
+    ProductName VARCHAR(50),
+    Price DECIMAL(10,2)
+);
+
+INSERT INTO Product VALUES
+(101,'Keyboard',450),
+(102,'Mouse',700),
+(103,'Headphones',950),
+(104,'Monitor',1500),
+(105,'Speaker',800);
+
+SELECT * FROM Product;
+
+SELECT *
+FROM Product
+WHERE Price BETWEEN 500 AND 1000;
