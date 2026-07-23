@@ -1,0 +1,19 @@
+CREATE TABLE Customer (
+    CustomerID INT PRIMARY KEY,
+    CustomerName VARCHAR(50),
+    Email VARCHAR(100)
+);
+
+INSERT INTO Customer VALUES
+(1,'Ravi','ravi@gmail.com'),
+(2,'Priya','priya@gmail.com'),
+(3,'Arjun','ravi@gmail.com'),
+(4,'Meena','meena@gmail.com'),
+(5,'Karthik','priya@gmail.com');
+
+SELECT * FROM Customer;
+
+SELECT Email, COUNT(*) AS Total
+FROM Customer
+GROUP BY Email
+HAVING COUNT(*) > 1;
