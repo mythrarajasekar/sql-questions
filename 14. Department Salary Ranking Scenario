@@ -1,0 +1,35 @@
+-- Create Table
+CREATE TABLE Employee (
+    EmpID INT PRIMARY KEY,
+    EmpName VARCHAR(50),
+    Department VARCHAR(30),
+    Salary INT
+);
+
+-- Insert Records
+INSERT INTO Employee VALUES
+(101,'Ravi','IT',50000),
+(102,'Priya','HR',45000),
+(103,'Arjun','IT',60000),
+(104,'Meena','Finance',55000),
+(105,'Karthik','IT',70000),
+(106,'Divya','HR',65000),
+(107,'Suresh','Finance',60000);
+
+-- Display All Records
+SELECT * FROM Employee;
+
+-- ROW_NUMBER()
+SELECT EmpID, EmpName, Department, Salary,
+ROW_NUMBER() OVER(PARTITION BY Department ORDER BY Salary DESC) AS Row_Num
+FROM Employee;
+
+-- RANK()
+SELECT EmpID, EmpName, Department, Salary,
+RANK() OVER(PARTITION BY Department ORDER BY Salary DESC) AS Rank_No
+FROM Employee;
+
+-- DENSE_RANK()
+SELECT EmpID, EmpName, Department, Salary,
+DENSE_RANK() OVER(PARTITION BY Department ORDER BY Salary DESC) AS Dense_Rank
+FROM Employee;
