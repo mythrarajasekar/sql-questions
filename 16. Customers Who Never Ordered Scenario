@@ -1,0 +1,48 @@
+-- Create Customer Table
+CREATE TABLE Customer (
+    CustomerID INT PRIMARY KEY,
+    CustomerName VARCHAR(50)
+);
+
+-- Create Orders Table
+CREATE TABLE Orders (
+    OrderID INT PRIMARY KEY,
+    CustomerID INT,
+    OrderDate DATE
+);
+
+-- Insert Customers
+INSERT INTO Customer VALUES
+(1,'Ravi'),
+(2,'Priya'),
+(3,'Arjun'),
+(4,'Meena'),
+(5,'Karthik');
+
+-- Insert Orders
+INSERT INTO Orders VALUES
+(101,1,'2025-01-10'),
+(102,3,'2025-01-15'),
+(103,5,'2025-02-20');
+
+-- Display Records
+SELECT * FROM Customer;
+SELECT * FROM Orders;
+
+-- Customers Who Never Ordered (LEFT JOIN)
+SELECT c.*
+FROM Customer c
+LEFT JOIN Orders o
+ON c.CustomerID = o.CustomerID
+WHERE o.CustomerID IS NULL;
+
+-- OR
+
+-- Customers Who Never Ordered (NOT EXISTS)
+SELECT *
+FROM Customer c
+WHERE NOT EXISTS (
+    SELECT *
+    FROM Orders o
+    WHERE o.CustomerID = c.CustomerID
+);
