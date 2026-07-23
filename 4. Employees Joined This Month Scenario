@@ -1,0 +1,21 @@
+CREATE TABLE Employee (
+    EmpID INT PRIMARY KEY,
+    EmpName VARCHAR(50),
+    Department VARCHAR(30),
+    Salary INT,
+    JoinDate DATE
+);
+
+INSERT INTO Employee VALUES
+(101,'Ravi','IT',50000,'2026-07-05'),
+(102,'Priya','HR',45000,'2026-06-15'),
+(103,'Arjun','IT',60000,'2026-07-10'),
+(104,'Meena','Finance',55000,'2026-05-20'),
+(105,'Karthik','IT',70000,'2026-07-18');
+
+SELECT * FROM Employee;
+
+SELECT *
+FROM Employee
+WHERE MONTH(JoinDate) = MONTH(CURDATE())
+AND YEAR(JoinDate) = YEAR(CURDATE());
