@@ -1,0 +1,27 @@
+-- Create Table
+CREATE TABLE Sales (
+    SaleID INT PRIMARY KEY,
+    SaleDate DATE,
+    Amount DECIMAL(10,2)
+);
+
+-- Insert Records
+INSERT INTO Sales VALUES
+(1,'2025-01-10',5000),
+(2,'2025-01-20',7000),
+(3,'2025-02-15',6000),
+(4,'2025-02-28',8000),
+(5,'2026-01-05',9000),
+(6,'2026-01-25',4000),
+(7,'2026-02-12',10000);
+
+-- Display All Records
+SELECT * FROM Sales;
+
+-- Total Monthly Sales for Each Year
+SELECT YEAR(SaleDate) AS Year,
+MONTH(SaleDate) AS Month,
+SUM(Amount) AS TotalSales
+FROM Sales
+GROUP BY YEAR(SaleDate), MONTH(SaleDate)
+ORDER BY Year, Month;
