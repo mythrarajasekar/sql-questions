@@ -1,0 +1,20 @@
+CREATE TABLE Customer (
+    CustomerID INT PRIMARY KEY,
+    CustomerName VARCHAR(50),
+    City VARCHAR(30),
+    Age INT
+);
+
+INSERT INTO Customer VALUES
+(1,'Ravi','Chennai',28),
+(2,'Priya','Coimbatore',24),
+(3,'Arjun','Chennai',32),
+(4,'Meena','Madurai',27),
+(5,'Karthik','Chennai',22);
+
+SELECT * FROM Customer;
+
+SELECT *
+FROM Customer
+WHERE City = 'Chennai'
+AND Age > 25;
