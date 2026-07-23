@@ -1,0 +1,25 @@
+-- Create Sales Table
+CREATE TABLE Sales (
+    SaleID INT PRIMARY KEY,
+    SaleDate DATE,
+    Amount DECIMAL(10,2)
+);
+
+-- Insert Records
+INSERT INTO Sales VALUES
+(1,'2025-01-01',5000),
+(2,'2025-01-03',3000),
+(3,'2025-01-05',7000),
+(4,'2025-01-08',4000),
+(5,'2025-01-10',6000);
+
+-- Display Records
+SELECT * FROM Sales;
+
+-- Running Total of Sales
+SELECT
+SaleID,
+SaleDate,
+Amount,
+SUM(Amount) OVER(ORDER BY SaleDate) AS RunningTotal
+FROM Sales;
