@@ -1,0 +1,39 @@
+-- Create Employee Table
+CREATE TABLE Employee (
+    EmpID INT PRIMARY KEY,
+    EmpName VARCHAR(50)
+);
+
+-- Create Project Table
+CREATE TABLE Project (
+    ProjectID INT PRIMARY KEY,
+    ProjectName VARCHAR(50),
+    EmpID INT
+);
+
+-- Insert Employees
+INSERT INTO Employee VALUES
+(101,'Ravi'),
+(102,'Priya'),
+(103,'Arjun'),
+(104,'Meena');
+
+-- Insert Projects
+INSERT INTO Project VALUES
+(1,'Website',101),
+(2,'Payroll',101),
+(3,'ERP',102),
+(4,'Inventory',103),
+(5,'CRM',103);
+
+-- Display Records
+SELECT * FROM Employee;
+SELECT * FROM Project;
+
+-- Employees Working on More Than One Project
+SELECT e.EmpID, e.EmpName, COUNT(p.ProjectID) AS TotalProjects
+FROM Employee e
+JOIN Project p
+ON e.EmpID = p.EmpID
+GROUP BY e.EmpID, e.EmpName
+HAVING COUNT(p.ProjectID) > 1;
