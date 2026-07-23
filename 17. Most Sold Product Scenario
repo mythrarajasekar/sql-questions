@@ -1,0 +1,41 @@
+-- Create Product Table
+CREATE TABLE Product (
+    ProductID INT PRIMARY KEY,
+    ProductName VARCHAR(50)
+);
+
+-- Create Sales Table
+CREATE TABLE Sales (
+    SaleID INT PRIMARY KEY,
+    ProductID INT,
+    Quantity INT
+);
+
+-- Insert Products
+INSERT INTO Product VALUES
+(101,'Keyboard'),
+(102,'Mouse'),
+(103,'Monitor'),
+(104,'Speaker');
+
+-- Insert Sales
+INSERT INTO Sales VALUES
+(1,101,5),
+(2,102,8),
+(3,101,7),
+(4,103,4),
+(5,102,6),
+(6,104,3);
+
+-- Display Records
+SELECT * FROM Product;
+SELECT * FROM Sales;
+
+-- Most Sold Product
+SELECT p.ProductID, p.ProductName, SUM(s.Quantity) AS TotalSold
+FROM Product p
+JOIN Sales s
+ON p.ProductID = s.ProductID
+GROUP BY p.ProductID, p.ProductName
+ORDER BY TotalSold DESC
+LIMIT 1;
