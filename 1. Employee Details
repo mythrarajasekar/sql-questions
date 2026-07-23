@@ -1,0 +1,19 @@
+-- your code goes here
+CREATE TABLE Employee (
+    EmpID INT PRIMARY KEY,
+    EmpName VARCHAR(50),
+    Department VARCHAR(30),
+    Salary INT
+);
+
+INSERT INTO Employee (EmpID, EmpName, Department, Salary)
+VALUES
+(101, 'Ravi', 'IT', 50000),
+(102, 'Priya', 'HR', 45000),
+(103, 'Arjun', 'IT', 60000),
+(104, 'Meena', 'Finance', 55000),
+(105, 'Karthik', 'IT', 70000);
+
+SELECT *
+FROM Employee
+WHERE Department = 'IT';
