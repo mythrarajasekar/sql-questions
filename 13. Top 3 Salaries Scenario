@@ -1,0 +1,26 @@
+-- Create Table
+CREATE TABLE Employee (
+    EmpID INT PRIMARY KEY,
+    EmpName VARCHAR(50),
+    Department VARCHAR(30),
+    Salary INT
+);
+
+-- Insert Records
+INSERT INTO Employee VALUES
+(101,'Ravi','IT',50000),
+(102,'Priya','HR',45000),
+(103,'Arjun','IT',60000),
+(104,'Meena','Finance',55000),
+(105,'Karthik','IT',70000),
+(106,'Divya','HR',65000),
+(107,'Suresh','Finance',60000);
+
+-- Display All Records
+SELECT * FROM Employee;
+
+-- Top 3 Highest Salaries
+SELECT DISTINCT Salary
+FROM Employee
+ORDER BY Salary DESC
+LIMIT 3;
